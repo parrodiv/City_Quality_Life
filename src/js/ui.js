@@ -124,5 +124,6 @@ class UI {
         this.chart.style.display = 'none';
         this.overall.style.display = 'none';
     }
-
 }
+//Esporto module ed inizializzo la classe UI
+export const ui = new UI();

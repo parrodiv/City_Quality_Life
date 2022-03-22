@@ -13,3 +13,6 @@ class Storage {
         localStorage.setItem('city', city);
     }
 }
+
+//Esporto module ed inizializzo la classe Storage
+export const storage = new Storage();

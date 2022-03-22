@@ -1,6 +1,6 @@
-// import axios from 'axios';
 
-class CityData {
+
+ export class CityData {
   constructor(city) {
     this.city = city;
   }

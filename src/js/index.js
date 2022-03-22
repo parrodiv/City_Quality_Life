@@ -1,17 +1,18 @@
-//init Storage class
-const storage = new Storage();
-//int UI class
-const ui = new UI();
-
+//import Storage module
+import { storage } from "./storage";
+//import UI module
+import { ui } from "./ui";
+//import CityData module
+import { CityData } from "./city";
 
 //EVENTS
 
-//CONTENT LOADED-init City class in caso di dato nel localStorage
+//CONTENT LOADED EVENT - init City class in caso di dato nel localStorage
 document.addEventListener('DOMContentLoaded', () => {
     //se il localStorage non è vuoto
-    if (localStorage.getItem('city') !== null){
+    if (storage.getCityFromStorage() !== null){
         //init CityData class
-        const cityData = new CityData(localStorage.getItem('city'));
+        const cityData = new CityData(storage.getCityFromStorage());
         cityData.getCity()
             .then( results => ui.showData(results))
             .catch( err => {
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else null;
 })
 
-//SUBMIT-Ottengo city name ed i vari dati
+//SUBMIT EVENT - Ottengo city name ed i vari dati
 document.getElementById('submit').addEventListener('submit', (e) => {
     e.preventDefault();
     let city = document.getElementById('search-input').value;
