@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "search for a city of your choice and consult the statistics regarding the quality of life, divided into categories",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "webpack"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/parrodiv/City_Quality_Life.git"
