@@ -1,0 +1,33 @@
+@media only screen and (min-width:851px) {
+    .container{
+        max-width: 1050px;
+    }
+
+    .search-container{
+        min-height:200px; 
+        padding: 15px;
+    }
+
+    input[type="text"]{
+        max-width: 350px;
+    }
+
+    main .desc-chart{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #description,
+    #chart,
+    #overall{
+        padding: 15px; 
+        margin-top: 15px; 
+    }
+
+    #description .card-body {
+        min-height: 300px;
+    }
+
+    footer{
+        max-width: 1050px;
+    }
+}

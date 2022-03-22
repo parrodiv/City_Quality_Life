@@ -1,0 +1,43 @@
+@media only screen and (max-width: 649px){
+    .container{
+        max-width: 100%;
+    }
+
+    .search-container{
+        min-height:150px;
+        padding: 8px;
+    }
+
+
+    input[type="text"]{
+        max-width: 250px;
+    }
+
+    #description,
+    #chart,
+    #overall{
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    #description .card-img-top{
+        height: 100px;
+        width: 100%;
+    }
+
+    #description .card-body {
+        min-height: 0px;
+    }
+
+    main .desc-chart{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #canvasMyChart{
+        max-height: 400px;
+    }
+
+    .footer{
+        max-width: 100%;
+    }
+}
