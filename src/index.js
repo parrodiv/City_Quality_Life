@@ -5,6 +5,9 @@ import { ui } from "./ui";
 //import CityData module
 import { CityData } from "./city";
 
+//import bootstrap from node-modules
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 //import css files
 import "../assets/css/common.css";
 import "../assets/css/desktop.css";
