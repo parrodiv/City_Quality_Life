@@ -1,10 +1,3 @@
-//import Storage module
-import { storage } from "./storage";
-//import UI module
-import { ui } from "./ui";
-//import CityData module
-import { CityData } from "./city";
-
 //import bootstrap from node-modules
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -13,6 +6,15 @@ import "../assets/css/common.css";
 import "../assets/css/desktop.css";
 import "../assets/css/tablet.css";
 import "../assets/css/mobile.css";
+
+//import Storage module
+import { storage } from "./storage";
+//import UI module
+import { ui } from "./ui";
+//import CityData module
+import { CityData } from "./city";
+
+
 
 //EVENTS
 
