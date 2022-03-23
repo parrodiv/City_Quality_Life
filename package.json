@@ -4,7 +4,8 @@
   "description": "search for a city of your choice and consult the statistics regarding the quality of life, divided into categories",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.config.js"
+    "start": "webpack --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
