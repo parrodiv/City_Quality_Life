@@ -5,11 +5,11 @@
 
     .search-container{
         min-height:200px; 
-        padding: 15px;
+        padding: 20px;
     }
 
-    input[type="text"]{
-        max-width: 350px;
+    input#search-input{
+        width: 350px;
     }
 
     main .desc-chart{

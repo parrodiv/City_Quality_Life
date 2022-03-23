@@ -1,5 +1,3 @@
-
-
  export class CityData {
   constructor(city) {
     this.city = city;
@@ -46,4 +44,3 @@
   }
 }
 
-// export const cityClass = new CityClass();
