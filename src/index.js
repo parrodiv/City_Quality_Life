@@ -5,6 +5,12 @@ import { ui } from "./ui";
 //import CityData module
 import { CityData } from "./city";
 
+//import css files
+import "../assets/css/common.css";
+import "../assets/css/desktop.css";
+import "../assets/css/tablet.css";
+import "../assets/css/mobile.css";
+
 //EVENTS
 
 //CONTENT LOADED EVENT - init City class in caso di dato nel localStorage
