@@ -6,8 +6,16 @@ module.exports = merge(common, {
     mode: "development",
     "devtool": false,
     output: {
-        filename: "main.js",
+        filename: "main.bundle.js",
         path: path.resolve(__dirname, "dist"),
         assetModuleFilename: "./imgs/[name].[ext]",
     },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            }
+        ]
+    }
 })
