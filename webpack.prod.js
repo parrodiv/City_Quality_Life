@@ -10,7 +10,7 @@ module.exports = merge(common, {
     mode: "production",
     "devtool": false,
     output: {
-        filename: "main.[contenthash].bundle.js",
+        filename: "[name].[contenthash].bundle.js", //può essere file main o vendor, per questo si inserisce la variabile name
         path: path.resolve(__dirname, "dist"),
         assetModuleFilename: "./imgs/[name].[hash].[ext]"
     },

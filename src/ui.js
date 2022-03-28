@@ -4,13 +4,14 @@ class UI {
     this.description = document.getElementById('description');
     this.chart = document.getElementById('chart');
     this.overall = document.getElementById('overall');
+    this.compareCities = document.getElementById('compare-cities-chart');
   }
 
-    showData(results) {
+    showCity1(results) {
         //cancello l'input search
         this.inputText.value = '';
 
-        //modifico il cityName perchè altrimenti uscirebbe con il trattino per la formattazione API
+        //modifico il cityName in stampato per il titolo della descrizione
         let cityName = results.cityName
                         .toUpperCase()
                         .replaceAll('-', ' ');
@@ -37,39 +38,58 @@ class UI {
         //rendo visibile il div#descriprion
         this.description.style.display = 'block';
 
-        //GRAFICO
+    
         console.log(results.cityScores);
 
         //raggruppo in array i punteggi cosi quando li metto nel grafico ho il dataset già pronto
-        const scores = results.cityScores.map( score => {
+        const scores_city1 = results.cityScores.map( score => {
             return `${Math.round(score.score_out_of_10)}`
         })
 
         //raggruppo in array le categorie cosi quando li metto nel grafico ho il dataset già pronto
-        const categories = results.cityScores.map ( category => {
+        const categories_city1 = results.cityScores.map( category => {
             return `${category.name}`;
         })
+
+        // GRAFICO SINGOLA CITTA'
 
         this.chart.innerHTML = `
         <div class="card-header">
             Chart of scores
-         </div>
+        </div>
         <div class="card-body chart-container">
-            <canvas id="myChart" width="10" height="10"></canvas>
+            <canvas id="myChart1" width="10" height="10"></canvas>
         </div>
         `
         //rendo visibile il div#chart
+        this.showChart1(categories_city1, scores_city1);
         this.chart.style.display = 'block';
         
 
-        const ctx = document.getElementById('myChart').getContext('2d');
+       //CARD COMPARE CITY FORM 
+        this.compareCities.innerHTML = `
+            <div class="text">Do you want to compare <b>${cityName.toUpperCase()}</b> with anoter city?</div>
+            <form id="compareForm">
+                <input type="text" id="search-input2" placeholder="Search for a city to compare with" />
+                <button class="search-btn compare-btn" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        `;
+        //rendo visibile il div#compare-cities
+        this.compareCities.style.display = 'block'; 
+    }
+
+    showChart1(categories_city1, scores_city1){
+        //CHART SINGOLA CITTA'
+        const ctx = document.getElementById('myChart1').getContext('2d');
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: categories,
+                labels: categories_city1,
                 datasets: [{
                     label: 'score',
-                    data: scores,
+                    data: scores_city1,
                     backgroundColor: [
                         '#000000',
                     ],
@@ -88,7 +108,14 @@ class UI {
                 }
             }
         });
-    
+    }
+
+    showChart2(results){
+        //cancello l'input search
+        this.inputText.value = '';
+
+        console.log(results);
+
     }
 
     showAlert(message){

@@ -5,10 +5,11 @@
 
     .search-container{
         min-height:200px; 
-        padding: 20px;
+        
     }
 
-    input#search-input{
+    input#search-input,
+    #search-input2{
         width: 350px;
     }
 
