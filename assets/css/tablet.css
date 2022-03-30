@@ -16,9 +16,16 @@
         grid-template-columns: repeat(1, 1fr);
     }
 
-    #canvasMyChart{
+    canvas#myChart1{
         max-height: 400px;
     }
+
+    canvas#myChart1{
+        max-height: 500px;
+        max-width: 500px;
+        width: 100%;
+    }
+
 
     footer{
         max-width: 80%;

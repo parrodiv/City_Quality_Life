@@ -13,7 +13,7 @@
     }
 
     #description,
-    #chart,
+    #chart1,
     #overall{
         padding: 15px;
         margin-top: 10px;
@@ -32,9 +32,16 @@
         grid-template-columns: repeat(1, 1fr);
     }
 
-    #canvasMyChart{
+    canvas#myChart1{
         max-height: 400px;
     }
+
+    canvas#myChart2{
+        max-height: 400px;
+        max-width: 400px;
+        width: 100%;
+    }
+
 
     .footer{
         max-width: 100%;

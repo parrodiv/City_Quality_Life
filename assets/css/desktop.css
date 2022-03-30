@@ -18,7 +18,7 @@
     }
 
     #description,
-    #chart,
+    #chart1,
     #overall{
         padding: 15px; 
         margin-top: 15px; 
@@ -26,6 +26,12 @@
 
     #description .card-body {
         min-height: 300px;
+    }
+
+    canvas#myChart2{
+        max-height: 600px;
+        max-width: 600px;
+        width: 100%;
     }
 
     footer{

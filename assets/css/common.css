@@ -98,12 +98,17 @@ main .desc-chart{
     margin-bottom: 20px;
 }
 
-canvas#myChart{
+#loading1,
+#loading2 {
+    display:none;
+}
+
+canvas#myChart1{
     margin-top: 2.5rem;
 }
 
 #description,
-#chart,
+#chart1,
 #overall{
     background: #F2F3F5;
     width: 100%;
@@ -139,6 +144,10 @@ canvas#myChart{
     margin: 0 0 5px;
 }
 
+h3#headerComparison{
+    margin-top: 15px;
+}
+
 #compare-cities-chart{
     background: #F2F3F5;
     width: 100%;
@@ -151,15 +160,28 @@ canvas#myChart{
 }
 
 #compare-cities-chart .text {
-    margin-bottom: 10px;
+    margin: 20px 0 15px;
     font-size: 20px;
     letter-spacing: 3px;
 }
 
 .alert{
     width: 100%;
-    padding: 0;
+    padding: 10px;
     color: red;
+    margin-top: 15px;
+}
+
+#chart2 {
+    position: relative;
+    margin: auto;
+    max-height: 700px;
+    max-width: 900px;
+}
+
+canvas#myChart2{
+    max-height: 600px;
+    width: 100%;
 }
 
 footer{
@@ -176,6 +198,7 @@ footer{
     margin: auto;
     margin-bottom: 15px;
 }
+
 
 footer p{
     margin: 0;
