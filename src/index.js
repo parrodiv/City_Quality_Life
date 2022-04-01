@@ -75,7 +75,7 @@ function getCity_1() {
                 ui.showAlert('Please insert a city', '.container', '.search-container');
                 ui.clearLoading(1);
             }else {
-                ui.showAlert('City not found', '.container', '.search-container');
+                ui.showAlert('City not found || PS: search a city in english', '.container', '.search-container');
                 ui.clearLoading(1);
             }
         })
