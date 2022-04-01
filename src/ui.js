@@ -31,6 +31,10 @@ class UI {
         document.getElementById(`loading${loadingNumber}`).style.display = 'none';
     }
 
+    animateEl(element, animation) {
+        element.classList.add('animate__animated', animation);
+    }
+
     showCity1(results) {
         //cancello l'input search
         this.inputText1.value = '';
@@ -54,6 +58,9 @@ class UI {
         this.overall.style.justifyContent = 'space-between';
         this.overall.style.alignItems = 'center';
 
+        //ANIMATION
+        
+
         // DESCRIZIONE E FOTO CITTA'
         this.description.innerHTML = `
             <img src="${results.imgWeb}" class="card-img-top">
@@ -65,10 +72,7 @@ class UI {
         
         //rendo visibile il div#descriprion
         this.description.style.display = 'block';
-
-    
-        // console.log(results.cityScores);
-
+        
         //raggruppo in array i punteggi cosi quando li metto nel grafico ho il dataset già pronto
         const scores_city1 = results.cityScores.map( score => {
             return `${Math.round(score.score_out_of_10)}`
@@ -94,16 +98,25 @@ class UI {
                 <canvas id="myChart1" width="10" height="10"></canvas>
             </div>
         `
+         //ANIMATIONS
+        this.animateEl( this.overall, 'animate__fadeInDownBig');
+        this.animateEl( this.chart, 'animate__fadeInRightBig');
+        this.animateEl( this.description, 'animate__fadeInLeftBig');
+        this.animateEl(this.compareCities, 'animate__fadeInDownBig');
+
         //rendo visibile il div#chart
         this.showChart1(categories_city, scores_city1);
         this.chart.style.display = 'block';
+
+        //la pagina scorre in basso alla chiamata della funzione
+         window.scrollTo(0, document.body.scrollHeight);        
         
         //chiamo la funzione che mi rende visibile il div#compare-cities
         this.showCompareCitiesForm(cityName1);
     }
 
     showCompareCitiesForm(cityName){
-        //CARD COMPARE CITY FORM 
+        //CARD COMPARE CITIES FORM 
         this.compareCities.innerHTML = `
             <div class="text">Do you want to compare <b>${cityName.toUpperCase()}</b> with anoter city?</div>
             <form id="compareForm">
@@ -156,6 +169,8 @@ class UI {
             Comparison between ${cityName1} and ${cityName2}
         `;
 
+        this.headerComparison.style.display = 'block';
+
         //ottengo il div#chart2
         const chart2 = document.getElementById('chart2');
         this.chart2 = chart2;
@@ -163,6 +178,12 @@ class UI {
         this.chart2.style.display = "block";
 
         this.showChart2(categories_city, scores_city1, scores_city2, cityName2);
+
+    
+
+
+        //la pagina scorre in basso alla chiamata della funzione
+         window.scrollTo(0, document.body.scrollHeight);
     }
 
     showChart1(categories_city, scores_city1){
@@ -196,11 +217,12 @@ class UI {
     }
 
 
-    showChart2(categories_city, scores_city1, scores_city2, cityName2 ){
-
+    showChart2(categories_city, scores_city1, scores_city2, cityName2 ) {
         this.chart2.innerHTML = `
             <canvas id="myChart2"style="display: inline;"></canvas>
         `;
+         //ANIMATION
+        this.animateEl(this.chart2, 'animate__zoomIn')
 
         //CHART2
         Chart.defaults.font.size = 14;
@@ -256,7 +278,6 @@ class UI {
         })
     }
    
-
     showAlert(message, parentElClassName, childElClassName){
         this.clearAlert();
         const div = document.createElement('div');

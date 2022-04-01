@@ -8,6 +8,8 @@ import "../assets/css/desktop.css";
 import "../assets/css/tablet.css";
 import "../assets/css/mobile.css";
 
+import "animate.css";
+
 //import Storage module
 import { storage } from "./storage";
 //import UI module
@@ -30,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 //SUBMIT EVENT ON SEARCH FORM- Ottengo city name ed i vari dati
-searchForm.addEventListener('submit', function(e){
+searchForm.addEventListener('submit', (e) => {
     ui.showLoading(1);
     setTimeout(getCity_1, 1000)
  

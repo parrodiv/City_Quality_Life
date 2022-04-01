@@ -12,7 +12,7 @@
     const responseCity = await fetch(
       `https://api.teleport.org/api/urban_areas/slug:${cityName}/scores/`
     );
-    console.log(cityName);
+    // console.log(cityName);
     const cityFetched = await responseCity.json();
 
     console.log(cityFetched);

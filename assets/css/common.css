@@ -1,4 +1,4 @@
-
+@import "~animate.css/animate.css";
 
 * {
     box-sizing: border-box;
@@ -94,7 +94,6 @@ input#searh-input2{
 main .desc-chart{
     display: grid;
     grid-gap: 20px;
-    margin-top: 20px;
     margin-bottom: 20px;
 }
 
