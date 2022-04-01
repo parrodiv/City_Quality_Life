@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./assets/img/logo-city.png" alt="Logo" width="120px">
+    <img src="./assets/img/logo-city.png" alt="Logo" width="300px" height="auto">
 </p>
 
 <details open="open">
@@ -30,6 +30,7 @@
 <div align='center'>
 <img src='./assets/img/screenshot_city1.png' height= 'auto' width= '400px'>
 </div>
+
 I have developed an app that allows you to search for a city of your choice and to see information regarding the quality of life, divided into categories. To do this I used the [Teleport API](https://developers.teleport.org/api/getting_started/)
 
 Through the research you can consult data such as: housing, cost of living, startups, venture capital, travel connectivity, commute, business freedom, safety, healthcare, education, environmental quality, economy, taxation, internet access, leisure & culture, tolerance and outdoors.
