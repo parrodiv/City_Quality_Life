@@ -34,7 +34,9 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "firebase": "^9.6.10",
+    "lodash": "^4.17.21",
     "wowjs": "^1.1.3"
   }
 }

@@ -17,9 +17,8 @@ import { ui } from "./ui";
 //import CityData module
 import { CityData } from "./city";
 
+
 const searchForm = document.getElementById('searchForm');
-
-
 
 //EVENTS
 
@@ -34,10 +33,24 @@ document.addEventListener('DOMContentLoaded', () => {
 //SUBMIT EVENT ON SEARCH FORM- Ottengo city name ed i vari dati
 searchForm.addEventListener('submit', (e) => {
     ui.showLoading(1);
-    setTimeout(getCity_1, 1000)
- 
+    setTimeout(() => {
+        getCity(1);
+    }, 1000)
     e.preventDefault();
 })
+
+//SUBMIT EVENT NEL FORM DI COMPARAZIONE DELLE DUE CITTA'
+function getCompareFormEvent(){
+    const compareForm = document.getElementById('compareForm')
+    compareForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        ui.showLoading(2);
+        setTimeout(() => {
+            getCity(2)
+        }, 1000)
+    });
+}
+
 
 function getCityOnLoaded(){
     //init CityData class
@@ -53,63 +66,53 @@ function getCityOnLoaded(){
         })
 }
 
-function getCity_1() {
-    let city = document.getElementById('search-input').value;
+function getCity(cityNumber){
+    if (cityNumber === 1){
+        let city = document.getElementById('search-input').value;
 
-    //set city to localStorage
-    storage.setCityToStorage(city);
-
-    //init CityClass 
-    const cityData = new CityData(city);
-    //chiamo la funzione che mi estrae la città dal API e che ritorna l'oggetto con le info che mi servono
+        //set city to localStorage
+        storage.setCityToStorage(city);
     
-    cityData.getCity()
-        .then(results => {
-            ui.showCity1(results);
-            //una volta ricercata la città ottengo l'elemento compareForm per far avviare la seconda ricerca della città di comparazione, devo avviare la funzione dopo lo showCity1 perchè il compareForm viene aggiunto dal js e quindi inserito nel DOM dopo che la pagina viene caricata
-            getCompareFormEvent();
-        })
-        .catch( err => {
-            console.log(`Error city: ${err.message}`);
-            if (city === ''){
-                ui.showAlert('Please insert a city', '.container', '.search-container');
-                ui.clearLoading(1);
-            }else {
-                ui.showAlert('City not found || PS: search a city in english', '.container', '.search-container');
-                ui.clearLoading(1);
-            }
-        })
-}
-
-function getCompareFormEvent(){
-    const compareForm = document.getElementById('compareForm')
-    compareForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        ui.showLoading(2);
-        setTimeout(getCity_2, 1000)
-    });
-}
-
-function getCity_2(){
-    let city = document.getElementById('search-input2').value;
-
-    const cityData2 = new CityData(city);
-        cityData2.getCity()
-            .then( results2 => {
-              console.log(results2);
-              ui.showCity2(results2);
-            }) 
+        //init CityClass 
+        const cityData = new CityData(city);
+        //chiamo la funzione che mi estrae la città dal API e che ritorna l'oggetto con le info che mi servono
+        
+        cityData.getCity()
+            .then(results => {
+                ui.showCity1(results);
+                //una volta ricercata la città ottengo l'elemento compareForm per far avviare la seconda ricerca della città di comparazione, devo avviare la funzione dopo lo showCity1 perchè il compareForm viene aggiunto dal js e quindi inserito nel DOM dopo che la pagina viene caricata
+                getCompareFormEvent();
+            })
             .catch( err => {
                 console.log(`Error city: ${err.message}`);
-                if(city === '') {
-                    ui.showAlert('Please Insert a City', '.compareCitiesContainer', '.text') 
-                    ui.clearLoading(2);
-                } else{
-                    ui.showAlert('City not found', '.compareCitiesContainer', '.text')
-                    ui.clearLoading(2);
+                if (city === ''){
+                    ui.showAlert('Please insert a city', '.container', '.search-container');
+                    ui.clearLoading(1);
+                }else {
+                    ui.showAlert('City not found || PS: search a city in english', '.container', '.search-container');
+                    ui.clearLoading(1);
                 }
             })
-    
+    } else {
+        let city = document.getElementById('search-input2').value;
+
+        const cityData2 = new CityData(city);
+            cityData2.getCity()
+                .then( results2 => {
+                  console.log(results2);
+                  ui.showCity2(results2);
+                }) 
+                .catch( err => {
+                    console.log(`Error city: ${err.message}`);
+                    if(city === '') {
+                        ui.showAlert('Please Insert a City', '.compareCitiesContainer', '.text') 
+                        ui.clearLoading(2);
+                    } else{
+                        ui.showAlert('City not found', '.compareCitiesContainer', '.text')
+                        ui.clearLoading(2);
+                    }
+                })
+    }
 }
 
        

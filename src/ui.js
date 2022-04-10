@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 class UI {
   constructor() {
     this.inputText1 = document.getElementById('search-input');
@@ -43,7 +45,7 @@ class UI {
         this.clearLoading(1);
 
         //modifico il cityName in stampato per il titolo della descrizione
-        let cityName1 = results.cityName
+        let cityName1 = _.get(results, 'cityName')
                         .toUpperCase()
                         .replaceAll('-', ' ');
         this.cityName1 = cityName1;
@@ -52,7 +54,7 @@ class UI {
 
         //OVERALL
         this.overall.innerHTML = `
-            Overall score: <span>${results.cityOverallScore.toFixed(2)} / 100</span>
+            Overall score: <span>${_.get(results, 'cityOverallScore').toFixed(2)} / 100</span>
         `;
         this.overall.style.display = 'flex';
         this.overall.style.justifyContent = 'space-between';
@@ -63,10 +65,10 @@ class UI {
 
         // DESCRIZIONE E FOTO CITTA'
         this.description.innerHTML = `
-            <img src="${results.imgWeb}" class="card-img-top">
+            <img src="${_.get(results, 'imgWeb')}" class="card-img-top">
             <div class="card-body">
                 <h3>${cityName1}</h3>
-                <p class="card-text"> ${results.citySummary}</p>
+                <p class="card-text"> ${_.get(results, 'citySummary')}</p>
             </div>
             `;
         
@@ -178,8 +180,6 @@ class UI {
         this.chart2.style.display = "block";
 
         this.showChart2(categories_city, scores_city1, scores_city2, cityName2);
-
-    
 
 
         //la pagina scorre in basso alla chiamata della funzione
